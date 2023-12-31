@@ -113,6 +113,10 @@ CREATE TABLE IF NOT EXISTS USER (
 ```
 创建好的表如下所示：
 ![table](IMG/table.jpg)
+
+修改数据库配置文件：
+Windows平台需要修改mysql.ini
+Linux平台需要修改mysql.cnf
 ### 4.编译与运行
 #### Windows
 以Visutal Studio为例：
@@ -125,65 +129,31 @@ MySQL数据库编程直接采用oracle公司提供的MySQL C/C++客户端开发�
 注意：如果是64位版本的MySQL，开发环境需要切换为x64.
 
 #### Linux
-
-
-MySQL数据库C++代码封装如下：
-
-```c++
-#include <mysql.h>
-#include <string>
-using namespace std;
-#include "public.h"
-
-// 数据库操作类
-class MySQL
-{
-public:
-  // 初始化数据库连接  
-  MySQL()  
-  {
-    _conn = mysql_init(nullptr); 
-  }
-  
-  // 释放数据库连接资源
-  ~MySQL()  
-  {
-    if (_conn != nullptr)
-      mysql_close(_conn);
-  }
-
-  // 连接数据库
-  bool connect(string ip, unsigned short port, string user, string password, string dbname)  
-  {
-    MYSQL *p = mysql_real_connect(_conn, ip.c_str(), user.c_str(), password.c_str(), dbname.c_str(), port, nullptr, 0);
-    return p != nullptr;
-  }
-
-  // 更新操作 insert、delete、update
-  bool update(string sql)
-  {
-    if (mysql_query(_conn, sql.c_str()))
-    {
-      LOG("更新失败:" + sql);
-      return false;
-    }
-    return true;
-  }
-  
-  // 查询操作 select
-  MYSQL_RES* query(string sql)
-  {
-    if (mysql_query(_conn, sql.c_str()))
-    {
-      LOG("查询失败:" + sql);
-      return nullptr;
-    }
-    return mysql_use_result(_conn);
-  }
-  
-private:
-  MYSQL *_conn; // 表示和MySQL Server的一条连接  
-};
+##### CMake
+1. 配置CMakeLists.txt，该项目根目录下的CMakeLists.txt已经配置好。
+2. 编译CMakeLists.txt
+```bash
+# 在项目根目录下创建build文件夹
+mkdir build
+# 进入build文件夹
+cd build
+#执行cmake命令,生成Makefile文件:
+cmake ..
+#使用make命令编译构建项目
+make
 ```
+3. 运行build路径中的可执行文件`main`
+##### VScode
 
-所以MySQL数据库的连接和访问操作都可以通过上述C++类进行封装和实现。
+1. 使用.vscode文件中的tasks.json,对main.cpp进行编译。也可以通过CMake Tools进行编译。
+2. 运行`src/main`(通过tasks.json编译后生成的)；`build/main`(通过Cmake Tools编译后生成的)
+##### 命令行
+1. 通过g++命令行编译
+```bash
+# 切换到项目根目录
+g++ -o main ./src/main.cpp ./src/CommonConnectionPool.cpp src/Connection.cpp -I ./inc -I /usr/include/mysql/ -L /usr/lib64/mysql -lmysqlclient -pthread -std=c++11
+```
+2. 运行build路径中的可执行文件`main`
+
+
+

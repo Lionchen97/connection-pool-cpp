@@ -12,7 +12,7 @@
                 "${workspaceFolder}/src/Connection.cpp",
                 "${workspaceFolder}/src/CommonConnectionPool.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}",
+                "${workspaceFolder}/${fileBasenameNoExtension}",
                 "-pthread",
                 "-I",
                 "${workspaceFolder}/inc",

@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/root/project/gitpro3/connection-pool-cpp/build",
+  "command": "/usr/bin/g++     -std=c++11 -g -I/root/project/gitpro3/connection-pool-cpp/inc -I/usr/include/mysql    -fdiagnostics-color=always -pthread -o CMakeFiles/main.dir/src/main.o -c /root/project/gitpro3/connection-pool-cpp/src/main.cpp",
+  "file": "/root/project/gitpro3/connection-pool-cpp/src/main.cpp"
+},
+{
+  "directory": "/root/project/gitpro3/connection-pool-cpp/build",
+  "command": "/usr/bin/g++     -std=c++11 -g -I/root/project/gitpro3/connection-pool-cpp/inc -I/usr/include/mysql    -fdiagnostics-color=always -pthread -o CMakeFiles/main.dir/src/Connection.o -c /root/project/gitpro3/connection-pool-cpp/src/Connection.cpp",
+  "file": "/root/project/gitpro3/connection-pool-cpp/src/Connection.cpp"
+},
+{
+  "directory": "/root/project/gitpro3/connection-pool-cpp/build",
+  "command": "/usr/bin/g++     -std=c++11 -g -I/root/project/gitpro3/connection-pool-cpp/inc -I/usr/include/mysql    -fdiagnostics-color=always -pthread -o CMakeFiles/main.dir/src/CommonConnectionPool.o -c /root/project/gitpro3/connection-pool-cpp/src/CommonConnectionPool.cpp",
+  "file": "/root/project/gitpro3/connection-pool-cpp/src/CommonConnectionPool.cpp"
+}
+]
