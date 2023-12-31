@@ -1,0 +1,12 @@
+#数据库连接池的配置文件
+ip=localhost
+port=3306
+username=lion
+password=Csj19971012!
+dbname=lion_db
+initSize=10
+maxSize=1024
+#最大空闲时间默认单位是秒
+maxIdleTime=60
+#连接超时时间单位是毫秒
+connectionTimeout=100

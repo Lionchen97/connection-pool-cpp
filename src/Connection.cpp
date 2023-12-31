@@ -1,10 +1,10 @@
 #include "public.h"
 #include "Connection.h"
-#include<iostream>
+#include <iostream>
 using namespace std;
 // 初始化数据库连接
 Connection::Connection()
-{   
+{
     // 分配一个MYSQL
     _conn = mysql_init(nullptr);
 }
@@ -14,9 +14,11 @@ Connection::~Connection()
 {
     if (_conn != nullptr)
         mysql_close(_conn);
-    cout<<"销毁conn"<<endl;
 }
-
+// 刷新一下连接的起始的空闲时间点
+void Connection::refrshAliveTime() { _alivetime = clock(); }
+ // 返回存活时间
+clock_t Connection::getAliveTime()const{ return clock()-_alivetime;}
 // 连接数据库
 bool Connection::connect(string ip, unsigned short port, string username, string password, string dbname)
 {

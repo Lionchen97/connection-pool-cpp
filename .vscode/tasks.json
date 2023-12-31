@@ -10,6 +10,7 @@
                 "-g",
                 "${workspaceFolder}/src/main.cpp",
                 "${workspaceFolder}/src/Connection.cpp",
+                "${workspaceFolder}/src/CommonConnectionPool.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
                 "-pthread",

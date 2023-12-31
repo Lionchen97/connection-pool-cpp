@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <mysql/mysql.h>
+#include <ctime>
 using namespace std;
 
 /*
@@ -19,7 +20,13 @@ public:
   bool update(string sql);
   // 查询操作 select
   MYSQL_RES *query(string sql);
-
+  // 刷新一下连接的起始的空闲时间点
+  void refrshAliveTime();
+  // 返回存活时间
+  clock_t getAliveTime()const;
 private:
-  MYSQL *_conn; // 表示和MySQL Server的一条连接
+ // 表示和MySQL Server的一条connection
+  MYSQL *_conn;
+  //记录进入空闲状态后的起始存活时间
+  clock_t _alivetime;
 };
