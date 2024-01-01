@@ -2,8 +2,8 @@
 #include "Connection.h"
 #include "CommonConnectionPool.h"
 #include "public.h"
-#define USE_CONNECTIONPOOL false
-#define ENABLE_MULTITHREADING false
+#define USE_CONNECTIONPOOL false // 启用多线程
+#define ENABLE_MULTITHREADING false // 启用多线程
 using namespace std;
 
 int main()
