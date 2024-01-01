@@ -36,25 +36,7 @@ mysql/mysql.h
 ctime
 -
 
-../inc/pch.h
-
 ../inc/public.h
-
-/root/project/gitpro3/connection-pool-cpp/src/CommonConnectionPool.cpp
-pch.h
-/root/project/gitpro3/connection-pool-cpp/src/pch.h
-CommonConnectionPool.h
-/root/project/gitpro3/connection-pool-cpp/src/CommonConnectionPool.h
-public.h
-/root/project/gitpro3/connection-pool-cpp/src/public.h
-
-/root/project/gitpro3/connection-pool-cpp/src/Connection.cpp
-public.h
-/root/project/gitpro3/connection-pool-cpp/src/public.h
-Connection.h
-/root/project/gitpro3/connection-pool-cpp/src/Connection.h
-iostream
--
 
 /root/project/gitpro3/connection-pool-cpp/src/main.cpp
 iostream
